@@ -86,8 +86,9 @@ jobs:
           # устанавливаем тег latest, чтобы потом
           # на сервере и в docker-compose.yml не указывать версию
           tags: anafob0330/taski_backend:latest 
-    frontend_tests:
+  frontend_tests:
     runs-on: ubuntu-latest
+
     steps:
     - uses: actions/checkout@v3
     - name: Set up nodeJS
@@ -128,7 +129,7 @@ jobs:
           context: ./frontend/
           push: true
           tags: anafob0330/taski_frontend:latest 
-    build_gateway_and_push_to_docker_hub:
+  build_gateway_and_push_to_docker_hub:
     name: Push gateway Docker image to DockerHub
     runs-on: ubuntu-latest
     steps:
@@ -148,3 +149,4 @@ jobs:
           push: true
           # Тут вместо username должен быть ваш логин на Docker Hub
           tags: anafob0330/taski_gateway:latest
+          
